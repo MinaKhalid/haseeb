@@ -1,0 +1,364 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Assignment-1</title>
+
+<!-- Include meta tag to ensure proper rendering and touch zooming -->  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<link type="text/css" rel="stylesheet" href="css/mobile.css" />
+		<script type="text/javascript" src="js/modernizr-2.0.6/modernizr.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script> 
+		
+		<script type="text/javascript" src="js/jquery-1.7.1/jquery.min.js"></script>
+		
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ui-1.8.15/jquery.ui.autocomplete.min.js"></script>
+		<script type="text/javascript" src="js/demo.js"></script>
+		<script type="text/javascript" src="../ui/jquery.ui.map.js"></script>
+		<script type="text/javascript" src="../ui/jquery.ui.map.services.js"></script>
+		<script type="text/javascript" src="../ui/jquery.ui.map.extensions.js"></script>
+		<script type="text/javascript">				
+			var mapIslamabad = { 'center': '33.656392,73.016544', 'zoom': 17 };
+			$('#pageIslamabad').live('pageinit', function() {
+				demo.add('pageIslamabad', function() {
+					$('#map_canvas').gmap({'center': mapIslamabad.center, 'zoom': mapIslamabad.zoom, 'disableDefaultUI':true, 'callback': function() {
+						var self = this;
+						self.addMarker({'position': this.get('map').getCenter() }).click(function() {
+							self.openInfoWindow({ 'content': 'FAST-Islamabad!' }, this);
+						});
+					}}); 
+				}).load('pageIslamabad');
+			});
+			
+			$('#pageIslamabad').live('pageshow', function() {
+				demo.add('pageIslamabad', function() { $('#map_canvas').gmap('refresh'); }).load('pageIslamabad');
+			});
+			
+			var mapKarachi = { 'center': '24.859856,67.069939', 'zoom': 17 };
+			$('#pageKarachi').live('pageinit', function() {
+				demo.add('pageKarachi', function() {
+					$('#map_karachi').gmap({'center': mapKarachi.center, 'zoom': mapKarachi.zoom, 'disableDefaultUI':true, 'callback': function() {
+						var self = this;
+						self.addMarker({'position': this.get('map').getCenter() }).click(function() {
+							self.openInfoWindow({ 'content': 'FAST-Karachi!' }, this);
+						});
+					}}); 
+				}).load('pageKarachi');
+			});
+			
+			$('#pageKarachi').live('pageshow', function() {
+				demo.add('pageKarachi', function() { $('#map_karachi').gmap('refresh'); }).load('pageKarachi');
+			});
+			
+			var mapPeshawar = { 'center': '33.980465,71.427183', 'zoom': 17 };
+			$('#pagePeshawar').live('pageinit', function() {
+				demo.add('pagePeshawar', function() {
+					$('#map_peshawar').gmap({'center': mapPeshawar.center, 'zoom': mapPeshawar.zoom, 'disableDefaultUI':true, 'callback': function() {
+						var self = this;
+						self.addMarker({'position': this.get('map').getCenter() }).click(function() {
+							self.openInfoWindow({ 'content': 'FAST-Peshawar!' }, this);
+						});
+					}}); 
+				}).load('pagePeshawar');
+			});
+			
+			$('#pagePeshawar').live('pageshow', function() {
+				demo.add('pagePeshawar', function() { $('#map_peshawar').gmap('refresh'); }).load('pagePeshawar');
+			});
+			
+			
+			var mapLahore = { 'center': '31.481093,74.303388', 'zoom': 17 };
+			$('#pageLahore').live('pageinit', function() {
+				demo.add('pageLahore', function() {
+					$('#map_Lahore').gmap({'center': mapLahore.center, 'zoom': mapLahore.zoom, 'disableDefaultUI':true, 'callback': function() {
+						var self = this;
+						self.addMarker({'position': this.get('map').getCenter() }).click(function() {
+							self.openInfoWindow({ 'content': 'FAST-Lahore!' }, this);
+						});
+					}}); 
+				}).load('pageLahore');
+			});
+			
+			$('#pageLahore').live('pageshow', function() {
+				demo.add('pageLahore', function() { $('#map_Lahore').gmap('refresh'); }).load('pageLahore');
+			});
+			
+			
+				
+		
+		
+				
+        </script>
+
+		
+</head> 
+<body>
+
+<div data-role="page" id="page">  
+<div data-role="header">
+
+
+<div align="center">
+<img src="nu.png" />
+<h1> NUCES <h1>
+</div>
+
+</div>
+
+<div data-role="content">       
+<ul data-role="listview">   
+<li><a href="#pageCampus">Campus</a></li>   
+<li><a href="#pageAdmission">Admission</a></li>   
+<li><a href="#pageDepartment">Departments</a></li>  
+</ul> 
+</div>  
+<div data-role="footer">   
+<h4>All right reserved</h4>  
+</div> 
+</div>
+
+
+<div data-role="page" id="pageCampus">  
+<div data-role="header">   
+<a href="#page" class="ui-btn ui-icon-home ui-btn-icon-left">Main</a> 
+<div align="center">
+<img src="nu.png" />
+<h1> Campuses </h1>  
+</div>
+
+</div>  
+<div data-role="content"> 
+<ul data-role="listview">
+<li><a href="#pageIslamabad">Islamabad</a></li>
+<li><a href="#pageLahore">Lahore</a></li>
+<li><a href="#pageKarachi">Karachi</a></li>
+<li><a href="#pagePeshawar">Peshawar</a></li>
+</ul>       
+</div>  
+<div data-role="footer">   
+<h4>All Rights Reserved</h4>  
+</div> 
+</div>
+
+
+
+<div data-role="page" id="pageIslamabad">  
+<div data-role="header">
+<a href="#pageCampus" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+<div align="center">
+<img src="nu.png" />
+<h1> NUCES </h1>  
+</div>
+</div>  
+<div data-role="content" >       
+<h1 align="center">Islambad</h1>
+<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+					<div id="map_canvas" style="height:350px;"></div>
+				</div>
+<!--<a href="geo:National+University+of+Computer+%26+Emerging+Sciences/@33.656392,73.016544,17z"><img src="islamabad.jpg" width="250" height="250"/></a> --> 
+ 
+</div>
+<div data-role="footer">   
+<h4>All right reserved</h4>  
+</div> 
+</div>
+
+
+<div data-role="page" id="pageLahore">  
+<div data-role="header">
+<a href="#pageCampus" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+<div align="center">
+<img src="nu.png" />
+<h1> NUCES </h1>  
+</div>
+</div>  
+<div data-role="content">       
+<h1 align="center">Lahore</h1>
+<div align="center">
+<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+					<div id="map_Lahore" style="height:350px;"></div>
+				</div>
+<!--<a href="geo:National%20University%20of%20Computer%20and%20Emerging%20Sciences/@31.481093,74.303388,17z"><img src="lahore.jpg" width="250" height="250"/></a> -->
+</div>  
+</div>
+<div data-role="footer">   
+<h4>All right reserved</h4>  
+</div> 
+</div>
+
+<div data-role="page" id="pagePeshawar">  
+<div data-role="header">
+<a href="#pageCampus" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+<div align="center">
+<img src="nu.png" />
+<h1> NUCES </h1> 
+</div> 
+</div>  
+<div data-role="content">       
+<h1 align="center">Peshawar</h1>
+<div align="center">
+<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+					<div id="map_peshawar" style="height:350px;"></div>
+				</div>
+</div>  
+</div>
+<div data-role="footer">   
+<h4>All right reserved</h4>  
+</div> 
+</div>
+
+
+<div data-role="page" id="pageKarachi">  
+<div data-role="header">
+<a href="#pageCampus" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+<div align="center">
+<img src="nu.png" />
+<h1> NUCES </h1>  
+</div>
+</div>  
+<div data-role="content">       
+<h1 align="center">Karachi</h1>
+<div align="center">
+<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+					<div id="map_karachi" style="height:350px;"></div>
+				</div>
+</div>  
+</div>
+<div data-role="footer">   
+<h4>All right reserved</h4>  
+</div> 
+</div>
+
+
+<div data-role="page" id="pageDepartment">  
+<div data-role="header">   
+<a href="#page" class="ui-btn ui-icon-home ui-btn-icon-left">Main</a> 
+<div align="center">
+<img src="nu.png" />
+<h1 align="center">Departments</h1>
+</div>
+
+</div>  
+<div data-role="content"> 
+<ul data-role="listview">
+<li><a href="#pageDegree">CS</a></li>
+<li><a href="#pageDegree">EE</a></li>
+<li><a href="#pageDegree">Management</a></li>
+</ul>       
+</div>  
+<div data-role="footer">   
+<h4>All Rights Reserved</h4>  
+</div> 
+</div>
+
+
+<div data-role="page" id="pageDegree">  
+<div data-role="header">
+<a href="#pageDepartment" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+<div align="center">
+<img src="nu.png" />
+<h1> NUCES </h1>  
+</div>
+</div>  
+<div data-role="content">       
+<h1 align="center">Degrees</h1>
+<div data-role="collapsible">
+  <h1>BS</h1>
+  <ul data-role="listview">
+  <li>Batch 2011</li>
+  <li>Batch 2012</li>
+  <li>Batch 2013</li>
+  <li>Batch 2014</li>
+  </ul>
+</div>
+
+<div data-role="collapsible">
+  <h1>MS</h1>
+  <ul data-role="listview">
+  <li>Batch 2011</li>
+  <li>Batch 2012</li>
+  <li>Batch 2013</li>
+  <li>Batch 2014</li>
+  </ul>
+</div>
+</div>
+<div data-role="footer">   
+<h4>All right reserved</h4>  
+</div> 
+</div>
+
+
+<div data-role="page" id="pageAdmission">  
+<div data-role="header">
+<a href="#page" class="ui-btn ui-icon-home ui-btn-icon-left">Main</a>
+<div align="center">
+<img src="nu.png" />
+<h1> NUCES </h1>  
+</div>
+</div>  
+  <div data-role="main" class="ui-content">
+
+    <table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myTable">
+      <thead>
+        <tr>
+         
+          <th margin-left="35" align="center"></th>
+          <th margin-left="35" align="center" data-priority="2">BBA & BS</th>
+          <th margin-left="35" align="center" data-priority="3">MBA, MS & PhD</th>
+          <th margin-left="35" align="center" data-priority="4">PHD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Admission Submission</b></td>
+          <td margin-left="35" align="center">June 9- June 28</td>
+          <td margin-left="35" align="center">June 9- June 28</td>
+          <td margin-left="35" align="center">January 31, 2015</td>
+         
+        </tr>
+        <tr>
+          <td><b>Admission Test</b></td>
+          <td margin-left="35" align="center">July 1 - July 7</td>
+          <td margin-left="35" align="center">July 1 - July 7</td>
+          <td margin-left="35" align="center">- </td>
+         
+        </tr>
+		
+        <tr>
+          <td ><b>Declaration of Result</b></td>
+          <td padding-left="35" align="center">July 19</td>
+          <td padding-left="35" align="center">July 12</td>
+          <td padding-left="35" align="center">-</td>
+         
+        </tr>
+		
+        <tr>
+          <td><b>Interviews</b></td>
+          <td margin-left="35" align="center"></td>
+          <td margin-left="35" align="center">July 15 - July 17</td>
+          <td margin-left="35" align="center">-</td>
+        </tr>
+
+	<tr>
+          <td><b>Admission Formalities</b></td>
+          <td margin-left="35" align="center">July 21 - July 24</td>
+          <td margin-left="35" align="center">July 25 - July 28</td>
+          <td margin-left="35" align="center">-</td>
+          
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div data-role="footer">
+    <h1>All Rights Reserved</h1>
+  </div>
+</div> 
+
+</body> 
+</html> 
+
+
